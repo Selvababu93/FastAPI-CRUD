@@ -5,9 +5,10 @@ from fastapi import Depends
 from typing import Annotated
 
 
-DATABASE_URL = "sqlite:///./today_practice.db"
+# DATABASE_URL = "sqlite:///./today_practice.db"
+DATABASE_URL = "postgresql://postgres:Asdf321$@localhost/TodoApplicationDatabase"
 
-engine = create_engine(url=DATABASE_URL, connect_args={"check_same_thread":False})
+engine = create_engine(url=DATABASE_URL)
 
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 

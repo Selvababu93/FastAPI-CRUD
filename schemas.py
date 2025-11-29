@@ -7,7 +7,21 @@ class UsersCreateRequest(BaseModel):
     last_name : str = Field()
     password : str = Field()
     role : str = Field()
+    phone_number : str 
 
+    model_config = {
+        "json_schema_extra" : {
+            "example" : {
+                "username" : "alice",
+                "email" : "alice@email.com",
+                "first_name" : "Alice",
+                "last_name" : "Charlie",
+                "password" : "XXXXXX",
+                "role" : "admin",
+                "phone_number" : "+1 389745620"
+            }
+        }
+    }
 
 
 
@@ -41,3 +55,12 @@ class Token(BaseModel):
 class PasswordChangeRequest(BaseModel):
     password : str
     new_password : str
+    
+    
+
+class PhoneNumberUpdateRequest(BaseModel):
+    old_number : str
+    new_number : str
+    
+class PhoneNumberUpdateResponse(BaseModel):
+    new_number : str 

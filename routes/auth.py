@@ -28,7 +28,8 @@ async def signup(db: db_dependency, request: UsersCreateRequest):
             hashed_password = hash_password(request.password),
             first_name = request.first_name,
             last_name = request.last_name,
-            role = request.role
+            role = request.role,
+            phone_number = request.phone_number
         )
         
         db.add(user_model)
